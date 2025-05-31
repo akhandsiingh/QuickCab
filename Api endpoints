@@ -1,0 +1,37 @@
+## API Documentation
+
+### Authentication Endpoints
+
+| Endpoint | Method | Description | Request Body | Response
+|-----|-----|-----|-----|-----
+| `/api/auth/login` | POST | User login | `{ email, password }` | `{ token }`
+| `/api/auth` | GET | Get current user | None | User object
+
+
+### User Management
+
+| Endpoint | Method | Description | Request Body | Response
+|-----|-----|-----|-----|-----
+| `/api/users` | POST | Register user | `{ name, email, password, phone }` | `{ token }`
+| `/api/users/me` | GET | Get user profile | None | User object
+| `/api/users/me` | PUT | Update profile | `{ name, phone }` | Updated user
+
+
+### Cab Management
+
+| Endpoint | Method | Description | Request Body | Response
+|-----|-----|-----|-----|-----
+| `/api/cabs` | GET | Get all cab types | None | Array of cabs
+| `/api/cabs/:id` | GET | Get cab by ID | None | Cab object
+| `/api/cabs` | POST | Create cab type | Cab details | Created cab
+
+
+### Booking Management
+
+| Endpoint | Method | Description | Request Body | Response
+|-----|-----|-----|-----|-----
+| `/api/bookings` | POST | Create booking | Booking details | Created booking
+| `/api/bookings/:id` | GET | Get booking | None | Booking object
+| `/api/bookings/my-bookings` | GET | User's bookings | None | Array of bookings
+| `/api/bookings/:id/status` | PUT | Update status | `{ status }` | Updated booking
+| `/api/bookings/:id/rating` | PUT | Add rating | `{ rating, feedback }` | Updated booking
