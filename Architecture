@@ -1,0 +1,13 @@
+cab-booking-app/
+├── client/                 # React frontend
+│   ├── src/
+│   │   ├── components/     # Reusable components
+│   │   ├── pages/          # Page components
+│   │   ├── context/        # Context providers
+│   │   └── data/           # Static data files
+├── server/                 # Node.js backend
+│   ├── models/             # Database models
+│   ├── routes/             # API routes
+│   ├── middleware/         # Custom middleware
+│   └── index.js            # Server entry point
+└── README.md
