@@ -1,0 +1,82 @@
+### Database Schema
+
+#### Users Collection
+
+```javascript
+{
+  _id: ObjectId,
+  name: String,
+  email: String (unique),
+  password: String (hashed),
+  phone: String,
+  role: String (user/admin),
+  createdAt: Date
+}
+```
+
+#### Drivers Collection
+
+```javascript
+{
+  _id: ObjectId,
+  name: String,
+  email: String (unique),
+  password: String (hashed),
+  phone: String,
+  licenseNumber: String,
+  vehicleModel: String,
+  vehicleNumber: String,
+  isAvailable: Boolean,
+  currentLocation: {
+    lat: Number,
+    lng: Number
+  },
+  rating: Number,
+  totalRides: Number,
+  createdAt: Date
+}
+```
+
+#### Cabs Collection
+
+```javascript
+{
+  _id: ObjectId,
+  name: String,
+  description: String,
+  capacity: Number,
+  baseFare: Number,
+  perKmRate: Number,
+  perMinuteRate: Number,
+  image: String
+}
+```
+
+#### Bookings Collection
+
+```javascript
+{
+  _id: ObjectId,
+  user: ObjectId (ref: User),
+  driver: ObjectId (ref: Driver),
+  cabType: ObjectId (ref: Cab),
+  pickup: {
+    coordinates: { lat: Number, lng: Number },
+    address: String
+  },
+  destination: {
+    coordinates: { lat: Number, lng: Number },
+    address: String
+  },
+  fare: Number,
+  distance: Number,
+  duration: Number,
+  status: String (pending/confirmed/in-progress/completed/cancelled),
+  paymentMethod: String,
+  paymentStatus: String,
+  rating: Number,
+  feedback: String,
+  createdAt: Date,
+  updatedAt: Date
+}
+```
